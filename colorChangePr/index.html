@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>색깔 바꾸기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="canvas"></div>
+    <ul class="buttons">
+      <li><button type="button" id="red"  class="btn-red">빨강</button></li>
+      <li><button type="button" id="yellow" class="btn-yellow">노랑</button></li>
+      <li><button type="button" id="green" class="btn-green">초록</button></li>
+    </ul>
+
+
+  <script>
+    const btns = document.querySelectorAll("[class^=btn]");
+    const canvas = document.querySelector(".canvas");
+    // const red = document.querySelector('.btn-red');
+    // const yellow = document.querySelector('.btn-yellow');
+    // const green = document.querySelector('.btn-green');
+
+    // red.addEventListener('click',()=>{
+    //   const canvas = document.querySelector('.canvas');
+    //   canvas.classList.remove('red','yellow','green');
+    //   canvas.classList.add('red');
+    // });
+    // yellow.addEventListener('click',()=>{
+    //   const canvas = document.querySelector('.canvas');
+    //   canvas.classList.remove('red','yellow','green');
+    //   canvas.classList.add('yellow');
+    // });
+    // green.addEventListener('click',()=>{
+    //   const canvas = document.querySelector('.canvas');
+    //   canvas.classList.remove('red','yellow','green');
+    //   canvas.classList.add('green');
+    // });
+
+    for(let i= 0; i<btns.length; i++){      /// var i로 했을 때 오류를 뱉어내는 이유.for 루프 내에서 이벤트 리스너를 등록할 때, 클로저 문제로 인해 발생하는 오류입니다. for 루프의 반복이 완료된 후에 이벤트 리스너가 실행되는데, 이때 i 변수는 이미 반복이 끝난 상태이기 때문에 예상과 다른 결과가 발생합니다.
+      btns[i].addEventListener('click',()=>{
+        let color = btns[i].id;
+        canvas.className = "canvas";
+        canvas.classList.add(color);
+      })
+    }
+
+
+
+  </script>
+</body>
+</html>

@@ -19,4 +19,3 @@ result = oneTwoThree.reduce((acc, cur, i) => {
 // 1 2 1
 // 3 3 2
 result; // 6 
-
